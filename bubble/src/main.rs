@@ -1,7 +1,6 @@
 use common;
 
 fn bubble_sort(vec: &mut Vec<i32>) {
-    println!("Calling the bubble_sort");
     // Floor the value.
     let mut end_index = vec.len().saturating_sub(1);
     while end_index > 0 {
@@ -16,7 +15,6 @@ fn bubble_sort(vec: &mut Vec<i32>) {
 
         end_index = new_end;
     }
-    println!("done with the bubble_sort");
 }
 
 fn main() {
