@@ -85,3 +85,13 @@ pub fn print_vec(vec: &Vec<i32>, num_items: i32) {
     string.push_str("]");
     println!("{string}");
 }
+
+pub fn check_sorted(vec: &Vec<i32>) -> bool {
+    for i in 1..vec.len() {
+        if vec[i] < vec[i - 1] {
+            return false;
+        }
+    }
+
+    return true;
+}
