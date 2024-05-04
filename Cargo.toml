@@ -4,5 +4,6 @@
 members = [
   "bubble",
   "quick",
+  "count",
   "common",
 ]

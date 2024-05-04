@@ -64,7 +64,20 @@ pub fn make_random_vec(num_items: i32, max: i32) -> Vec<i32> {
     return vec;
 }
 
-pub fn print_vec(vec: &Vec<i32>, num_items: i32) {
+pub fn make_random_vec_of<T>(num_items: i32, max: i32, generator: fn(i32, i32) -> T) -> Vec<T> {
+    let mut prng = Prng::new();
+
+    let mut vec: Vec<T> = Vec::with_capacity(num_items as usize);
+    for i in 0..num_items {
+        let current_val = prng.next_i32(0, max);
+        let generated_type = generator(i, current_val);
+        vec.push(generated_type);
+    }
+
+    return vec;
+}
+
+pub fn print_vec(vec: &Vec<impl std::fmt::Display>, num_items: i32) {
     let mut max = vec.len();
     if max > num_items as usize {
         max = num_items as usize
@@ -86,7 +99,7 @@ pub fn print_vec(vec: &Vec<i32>, num_items: i32) {
     println!("{string}");
 }
 
-pub fn check_sorted(vec: &Vec<i32>) -> bool {
+pub fn check_sorted(vec: &Vec<impl std::cmp::Ord>) -> bool {
     for i in 1..vec.len() {
         if vec[i] < vec[i - 1] {
             return false;
