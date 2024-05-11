@@ -21,6 +21,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "linear"
+version = "0.1.0"
+dependencies = [
+ "common",
+]
+
+[[package]]
 name = "quick"
 version = "0.1.0"
 dependencies = [
