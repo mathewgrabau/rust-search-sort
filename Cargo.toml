@@ -6,5 +6,6 @@ members = [
   "quick",
   "count",
   "linear",
+  "binary-search",
   "common",
 ]
